@@ -17,5 +17,6 @@ in local_installation.sh
 
 ```
 ./local_installation.sh
+npm start # To start Electron
 ```
 
