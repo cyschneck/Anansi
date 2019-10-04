@@ -1,0 +1,22 @@
+{
+  "name": "anansi",
+  "version": "1.0.0",
+  "description": "Science and Research Collection Tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyschneck/Anansi.git"
+  },
+  "author": "cyschneck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyschneck/Anansi/issues"
+  },
+  "homepage": "https://github.com/cyschneck/Anansi#readme",
+  "dependencies": {
+    "electron": "^6.0.11"
+  }
+}
