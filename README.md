@@ -10,4 +10,5 @@ Dependencies installed via local_installation.sh
 * npm
 * Electron
 
-nodule_modules files generates by `npm install --save electron` command in local_installation.sh
+node_modules files generates by `npm install --save electron` command in local_installation.sh
+
