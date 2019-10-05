@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/favicon.ico --prune=true --out=release-builds",
-    "package-win": "electron-packager . Anansi --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=Anansi --version-string.FileDescription=Anansi --version-string.ProductName=\"Anansi\"",
+    "package-win": "electron-packager . Anansi --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=AI --version-string.FileDescription=AI --version-string.ProductName=\"Anansi\"",
     "package-linux": "electron-packager . Anansi --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/anansi_icon_png --prune=true --out=release-builds"
   },
   "repository": {

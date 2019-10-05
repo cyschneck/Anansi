@@ -44,8 +44,8 @@ npm run package-mac
 
 Note: using git lfs to upload release-builds (too large for github)
 ```
-git lfs track release-builds/*
-```
+git lfs track "release-builds/**"```
+# ** allows for recursive lfs for a folder
 
 _Errors and Solutions_
 *Failed at the anansi@1.0.0 package...
