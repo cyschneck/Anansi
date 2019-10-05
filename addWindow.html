@@ -4,11 +4,29 @@
 		<title>Add List Item</title>
 	</head>
 	<body>
-		<h1>Add List Item</h1>
-		<div>
-			<label>Enter Item</label>
-			<input type="text" id="item" autofocus>
-		</div>
-		<button type="submit">add Item</button>
+		<form>
+			<h1>Add List Item</h1>
+			<div>
+				<label>Enter Item</label>
+				<input type="text" id="item" autofocus>
+			</div>
+			<button type="submit">add Item</button>
+		</form>
+		
+		<script>
+			const electron = require('electron');
+			const {ipcRenderer} = electron;
+			
+			const form = document.querySelector('form');
+			form.addEventListener('submit', submitForm); // waits for submit to call submitForm
+			
+			function submitForm(e){
+				e.preventDefault();
+				//console.log(12345);
+				const item = document.querySelector('#item').value;
+				
+				ipcRenderer.send('item:add', item);
+			}
+		</script>
 	</body>
 </html>

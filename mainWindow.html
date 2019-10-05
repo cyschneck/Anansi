@@ -5,5 +5,31 @@
 	</head>
 	<body>
 		<h1>Coming Soon...</h1>
+		<ul></ul>
+		
+		<script>
+			const electron = require('electron');
+			const {ipcRenderer} = electron
+			const ul = document.querySelector('ul');
+			
+			// Catch add item from 'addWindow'
+			ipcRenderer.on('item:add', function(e, item){
+				const li = document.createElement('li');
+				const itemText = document.createTextNode(item);
+				li.appendChild(itemText);
+				ul.appendChild(li);
+			});
+
+			// Clear list
+			ipcRenderer.on('item:clear', function(){
+				ul.innerHTML = '';
+			});
+			
+			// Remove a single item from list by double clicking on the item
+			ul.addEventListener('dblclick', removeItem);
+			function removeItem(e){
+				e.target.remove(); // any li in the ul that is clicked will be removed
+			}
+		</script>
 	</body>
 </html>

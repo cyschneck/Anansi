@@ -1,6 +1,6 @@
 const electron = require('electron');
 
-const {app, BrowserWindow, Menu} = electron;
+const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 let mainWindow; // main window
 let addWindow; // new window variable
@@ -8,7 +8,12 @@ let addWindow; // new window variable
 // Listen for the app to ready
 app.on('ready', function(){
 	// Create new window
-	mainWindow = new BrowserWindow({});
+	mainWindow = new BrowserWindow({
+		// solves: Uncaught ReferenceError: require is not defined when loading page with devTools
+		webPreferences: {
+			nodeIntegration: true
+		}
+		});
 	// Load html into window
 	mainWindow.loadFile('mainWindow.html')
 
@@ -28,8 +33,13 @@ app.on('ready', function(){
 function createAddWindow(){
 	// Create new window
 	addWindow = new BrowserWindow({
-		width: 300,
-		height: 300,
+		width: 600,
+		height: 600,
+		
+		// solves: Uncaught ReferenceError: require is not defined when loading page with devTools
+		webPreferences: {
+			nodeIntegration: true
+		}
 		});
 	// Load html into window
 	addWindow.loadFile('addWindow.html')
@@ -46,6 +56,14 @@ function createAddWindow(){
 	});
 }
 
+// Catch item:add from Add Window
+ipcMain.on('item:add', function(e, item){
+	console.log(item);
+	mainWindow.webContents.send('item:add', item); // send items to main window
+	addWindow.close();
+});
+
+
 // Create menu template to replace default
 const mainMenuTemplate = [
 	{
@@ -53,12 +71,17 @@ const mainMenuTemplate = [
 		submenu:[
 		{
 			label: 'Add Item',
+			// add hot key
+			accelerator: process.platform=='darwin' ? 'Command+N' : 'Ctrl+N', // close window with either command+n for mac or ctrl+n for other OS'
 			click(){
 				createAddWindow();
 			}
 		},
 		{
-			label: 'Clear Items'
+			label: 'Clear Items Lists',
+			click(){
+				mainWindow.webContents.send('item:clear');
+			}
 		},
 		{
 			label: 'Quit',
