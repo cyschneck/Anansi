@@ -20,7 +20,7 @@ in local_dev_installation_linux.sh
 
 ### Steps
 
-_Dev Production_
+**Dev Production**
 ```
 ./local_installation.sh
 
@@ -29,7 +29,8 @@ npm start # To start Electron
 
 ```
 
-_Create Electron App (Windows, Linux, MacOS)_
+**Create Electron App (Windows, Linux, MacOS)**
+
 Run each command in their respectively OS to create an executable
 ```
 # Build Windows Executable
@@ -44,12 +45,14 @@ npm run package-mac
 
 Note: using git lfs to upload release-builds (too large for github)
 ```
-git lfs track "release-builds/**"```
+git lfs track "release-builds/**"
 # ** allows for recursive lfs for a folder
-
-_Errors and Solutions_
-*Failed at the anansi@1.0.0 package...
 ```
+**Errors and Solutions**
+
+*Failed at the anansi@1.0.0 package...*
+```
+
 npm rebuild
 
 # Then re-run the command

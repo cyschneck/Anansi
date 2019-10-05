@@ -89,6 +89,7 @@ const mainMenuTemplate = [
 				mainWindow.webContents.send('item:clear');
 			}
 		},
+		{type: 'separator'}, // add line between menu items and 'quit' option
 		{
 			label: 'Quit',
 			// add hot key
@@ -99,6 +100,17 @@ const mainMenuTemplate = [
 				app.quit();
 			}
 		}
+		]
+	},
+	{
+		label: 'Help',
+		submenu:[
+		{
+			label: 'Report a Bug',
+		},
+		{
+			label: 'About Anansi',
+		},
 		]
 	}
 ];
