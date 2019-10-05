@@ -1,4 +1,6 @@
 # Anansi
+<img src="https://user-images.githubusercontent.com/22159116/66248733-ca74d900-e6e7-11e9-94f8-91df2becbe07.png" width="256">
+
 ### Science and Research Collection Tool
 
 ### Overview
