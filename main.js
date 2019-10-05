@@ -2,6 +2,9 @@ const electron = require('electron');
 
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
+// SET ENV
+process.env.NODE_ENV = 'production'; // to remove 'DevTools' options
+
 let mainWindow; // main window
 let addWindow; // new window variable
 
@@ -58,7 +61,10 @@ function createAddWindow(){
 
 // Catch item:add from Add Window
 ipcMain.on('item:add', function(e, item){
-	console.log(item);
+	if (process.env.NODE_ENV != 'production') {
+		console.log(item);
+		// if not in production, print console commands
+	}
 	mainWindow.webContents.send('item:add', item); // send items to main window
 	addWindow.close();
 });

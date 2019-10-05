@@ -17,6 +17,12 @@ in local_installation.sh
 
 ```
 ./local_installation.sh
+
 npm start # To start Electron
+# Note: Uncomment out 'process.env.NODE_ENV = 'production';' in main.js to show devTool options
+
 ```
 
+### Credits
+[Skeleton Framework](https://www.youtube.com/watch?v=kN1Czs0m1SU)
+[Electron Packager Scripts](https://www.christianengvall.se/electron-packager-tutorial/)

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Anansi Main Window</title>
+		<title>Anansi</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	</head>
 	<body>
 		<h1>Coming Soon...</h1>
+		<nav>
+			<div class="nav-wrapper">
+				<a class="brand-logo center">Main Menu Center</a>
+			</div>
+		</nav>
 		<ul></ul>
 		
 		<script>
@@ -14,7 +20,9 @@
 			
 			// Catch add item from 'addWindow'
 			ipcRenderer.on('item:add', function(e, item){
+				ul.className = 'collection'; // adds class name as items are added to keep main menu clear
 				const li = document.createElement('li');
+				li.className = 'collection-item';
 				const itemText = document.createTextNode(item);
 				li.appendChild(itemText);
 				ul.appendChild(li);
@@ -23,12 +31,17 @@
 			// Clear list
 			ipcRenderer.on('item:clear', function(){
 				ul.innerHTML = '';
+				ul.className = '';
 			});
 			
 			// Remove a single item from list by double clicking on the item
 			ul.addEventListener('dblclick', removeItem);
 			function removeItem(e){
 				e.target.remove(); // any li in the ul that is clicked will be removed
+				// if no li's left, clear out collection class to remove line on top of main menu
+				if (ul.children.length == 0){
+					ul.className = '';
+				}
 			}
 		</script>
 	</body>
