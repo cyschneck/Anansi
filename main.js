@@ -10,12 +10,12 @@ console.log(process.env.NODE_ENV)
 let mainWindow; // main window
 let addWindow; // new window variable
 
-// Use npm.cmd on windows executables
+/* Use npm.cmd on windows executables
 if (process.platform=="win32") {
   var cmd = 'npm.cmd'
 } else {
   var cmd = 'npm'
-}
+}*/
 
 // Listen for the app to ready
 app.on('ready', function(){
@@ -29,12 +29,11 @@ app.on('ready', function(){
 	// Load html into window
 	mainWindow.loadFile('mainWindow.html')
 
-	// QUIT: quit app when closed
+	// QUIT: quit app fully when closed
 	mainWindow.on('closed', function(){
 		app.quit();
 	});
 
-	
 	// Build the menu from the template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 	// Insert menu
@@ -53,7 +52,8 @@ function createAddWindow(){
 			nodeIntegration: true
 		}
 		});
-	// Load html into window
+
+	// Load html for addwindow option
 	addWindow.loadFile('addWindow.html')
 	
 	// Build the menu from the template

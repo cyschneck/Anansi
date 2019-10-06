@@ -4,11 +4,12 @@
 ### Science and Research Collection Tool
 
 ### Overview
+Science and research collection tool made in Electron.js and Python
 
 ### Download
 *Coming soon...*
 
-### Instructions to Run
+### Instructions for Development
 
 Dependencies installed via local_dev_installation_linux.sh
 
@@ -58,7 +59,18 @@ npm rebuild
 # Then re-run the command
 ```
 
+### Git Large File Storage (lfs) Details
+Currently, git-lfs storing links for the release-builds for Windows and Linux
+
+```
+$ git lfs track
+Listing tracked patterns
+    release-builds/** (.gitattributes)
+
+```
+
 ### Notes
+Not tested on MacOS (npm run package-mac)
 Need to convert .ico to .icns for MacOS icon
 
 ### Credits
