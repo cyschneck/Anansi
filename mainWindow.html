@@ -3,12 +3,12 @@
 	<head>
 		<title>Anansi</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<script src="python_linkers/handwritingML.js"></script>
 	</head>
 	<body>
-		<h1>Coming Soon...</h1>
 		<nav>
-			<div class="nav-wrapper">
-				<a class="brand-logo center">Main Menu Center</a>
+			<div class="nav-wrapper blue-grey darken-3">
+				<a class="brand-logo center">Coming Soon...</a>
 			</div>
 		</nav>
 		<ul></ul>
@@ -19,17 +19,17 @@
 			const ul = document.querySelector('ul');
 			
 			// Catch add item from 'addWindow'
-			ipcRenderer.on('item:add', function(e, item){
+			ipcRenderer.on('account_name:add', function(e, account_name){
 				ul.className = 'collection'; // adds class name as items are added to keep main menu clear
 				const li = document.createElement('li');
 				li.className = 'collection-item';
-				const itemText = document.createTextNode(item);
-				li.appendChild(itemText);
+				const accountName = document.createTextNode(account_name);
+				li.appendChild(accountName);
 				ul.appendChild(li);
 			});
 
 			// Clear list
-			ipcRenderer.on('item:clear', function(){
+			ipcRenderer.on('account_name:clear', function(){
 				ul.innerHTML = '';
 				ul.className = '';
 			});

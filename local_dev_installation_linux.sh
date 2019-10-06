@@ -20,6 +20,7 @@ echo "final 'About' saved to 'package.json'"
 echo "Install Electron"
 echo 'y' | sudo apt-get install nodejs-legacy
 echo 'y' | sudo npm install --save electron
+npm install python-shell
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 echo 'y' | sudo apt install nodejs
 npm install --save-dev electron-packager

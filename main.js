@@ -3,10 +3,19 @@ const electron = require('electron');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 // SET ENV
-process.env.NODE_ENV = 'production'; // to remove 'DevTools' options
+//process.env.NODE_ENV = 'production'; // to remove 'DevTools' options
+process.env.NODE_ENV = 'development'; // to add 'DevTools' options
 
+console.log(process.env.NODE_ENV)
 let mainWindow; // main window
 let addWindow; // new window variable
+
+// Use npm.cmd on windows executables
+if (process.platform=="win32") {
+  var cmd = 'npm.cmd'
+} else {
+  var cmd = 'npm'
+}
 
 // Listen for the app to ready
 app.on('ready', function(){
@@ -49,24 +58,24 @@ function createAddWindow(){
 	
 	// Build the menu from the template
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
-	// Insert menu
+	// Insert menu option
 	Menu.setApplicationMenu(mainMenu);
-	
-	
-	// Garbage collection handle (optmization)
+
+	// Garbage collection handle (optmization)benclear
 	addWindow.on('close', function(){
 		addWindow = null;
 	});
 }
 
-// Catch item:add from Add Window
-ipcMain.on('item:add', function(e, item){
+// Catch account_name:add from Add Window
+ipcMain.on('account_name:add', function(e, account_name){
 	if (process.env.NODE_ENV != 'production') {
-		console.log(item);
+		console.log(account_name, account_name);
 		// if not in production, print console commands
 	}
-	mainWindow.webContents.send('item:add', item); // send items to main window
-	addWindow.close();
+	mainWindow.webContents.send('account_name:add', account_name); // send items to main window
+
+	//addWindow.close(); // close add window after each entry
 });
 
 
@@ -76,7 +85,7 @@ const mainMenuTemplate = [
 		label:'FileX',
 		submenu:[
 		{
-			label: 'Add Item',
+			label: 'Add Account',
 			// add hot key
 			accelerator: process.platform=='darwin' ? 'Command+N' : 'Ctrl+N', // close window with either command+n for mac or ctrl+n for other OS'
 			click(){
@@ -84,9 +93,9 @@ const mainMenuTemplate = [
 			}
 		},
 		{
-			label: 'Clear Items Lists',
+			label: 'Clear Account Lists',
 			click(){
-				mainWindow.webContents.send('item:clear');
+				mainWindow.webContents.send('account_name:clear');
 			}
 		},
 		{type: 'separator'}, // add line between menu items and 'quit' option
@@ -129,7 +138,7 @@ if (process.env.NODE_ENV != 'production'){
 				label: 'Toggle DevTools',
 				// add hot key
 				accelerator: process.platform=='darwin' ? 'Command+I' : 'Ctrl+I', // close window with either command+i for mac or ctrl+i for other OS'
-				click(item, focusedWindow){
+				click(account_name, focusedWindow){
 					// Will make devTools to show up on whatever window is running
 					focusedWindow.toggleDevTools();
 				}
