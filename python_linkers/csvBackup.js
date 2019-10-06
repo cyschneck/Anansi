@@ -10,7 +10,7 @@ function get_account_name(){
 		args: [accountName],
 	}
 	//console.log(options)
-	let handwriting = new PythonShell("handwritingML.py", options);
+	let handwriting = new PythonShell("csvBackup.py", options);
 	handwriting.on('message', function(message) {
 		swal(message); // alerting system from python
 	})

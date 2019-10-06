@@ -6,7 +6,8 @@ const {app, BrowserWindow, Menu, ipcMain} = electron;
 //process.env.NODE_ENV = 'production'; // to remove 'DevTools' options
 process.env.NODE_ENV = 'development'; // to add 'DevTools' options
 
-console.log(process.env.NODE_ENV)
+console.log("process env = " + process.env.NODE_ENV)
+
 let mainWindow; // main window
 let addWindow; // new window variable
 
