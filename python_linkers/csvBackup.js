@@ -7,7 +7,8 @@ function get_account_name(){
 	
 	var options = {
 		scriptPath: path.join(__dirname, '/./'),
-		args: [accountName],
+		args: ["-A " + accountName],
+		// argsparse python -A 'account_name'
 	}
 	//console.log(options)
 	let handwriting = new PythonShell("csvBackup.py", options);
