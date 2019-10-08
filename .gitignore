@@ -1,2 +1,4 @@
 node_modules/*
 *.log
+pyinstaller_spec/dist*
+pyinstaller_spec/build*

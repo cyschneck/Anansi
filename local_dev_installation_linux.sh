@@ -25,3 +25,6 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 echo 'y' | sudo apt install nodejs
 npm install --save-dev electron-packager
 npm rebuild
+
+echo "Install pyinstaller"
+pip install pyinstaller

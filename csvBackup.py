@@ -26,13 +26,8 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description="flag format given as: -A <account_name>")
 	parser.add_argument('-A', '-account-name', help="account name")
 	args = parser.parse_args()
-	
-	if args.A is None:
-		print("ERROR: Include account name to read\n")
-		exit()
-	else:
-		account_name = args.A
-	
+	account_name = args.A
+
 	print("python script running: {0}".format(get_account_name(account_name)))
 	saveAccountNameCSV(account_name)
 	sys.stdout.flush()
