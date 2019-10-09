@@ -11,19 +11,22 @@ else
 	echo "generating a $operating_system executable"
 	echo ""
 
+	# Run pyinstaller for csvBackup.py to bundle Python scripts
 	echo "run pyinstaller to bundle csvBackup.py"
 	./run_pyinstaller_exe.sh
 
-	echo ""
-	echo "generate release-build/$operating_system executable"
-	echo "npm run package-$operating_system"
-	npm run package-$operating_system
-
+	# Store Pyinstaller results in a specific location for refernce in Electron.js
 	echo ""
 	echo "removed old and moved dist/build pyinstaller folders to 'pyinstaller_spec' for '$operating_system'"
 	rm -rf pyinstaller_spec/$operating_system/dist
 	mv dist pyinstaller_spec/$operating_system
 	rm -rf pyinstaller_spec/$operating_system/build
 	mv build pyinstaller_spec/$operating_system
+
+	# Run and Generate Electron.js executable
+	echo ""
+	echo "generate release-build/$operating_system executable"
+	echo "npm run package-$operating_system"
+	npm run package-$operating_system
 fi
 
