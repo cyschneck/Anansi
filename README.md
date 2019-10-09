@@ -39,8 +39,12 @@ generate_release_build_exe.sh will bundle Python scripts and generate Electron.j
 
 **Dev Production**
 ```
-./local_installation.sh
+# Run once at the beginning to install local dependencies
+./0_local_dev_installation_linux.sh
+```
 
+Generate and run for development (npm start vs. npm run)
+```
 npm start # To start Electron
 # Note: Uncomment out 'process.env.NODE_ENV = 'production';' in main.js to show devTool options
 
