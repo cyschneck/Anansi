@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['../csvBackup.py'],
+a = Analysis(['..\\csvBackup.py'],
              pathex=['pyinstaller_spec'],
              binaries=[],
              datas=[],

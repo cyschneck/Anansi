@@ -19,6 +19,22 @@ Dependencies installed via local_dev_installation_linux.sh
 Electron stored in *node_modules*, a folder created by `npm install --save electron`. This command is included
 in local_dev_installation_linux.sh
 
+**Create Electron App (Windows, Linux, MacOS)**
+
+Run each command in their respectively OS to create an executable manually (after running pyinstaller)
+
+generate_release_build_exe.sh will bundle Python scripts and generate Electron.js executable
+```
+# Build Windows Executable
+./generate_release_build_exe.sh win
+
+# Build Linux Executable
+./generate_release_build_exe.sh linux
+
+# Build MacOS Executable 
+# Not currently tested/supported
+```
+
 ### Steps
 
 **Dev Production**
@@ -28,20 +44,6 @@ in local_dev_installation_linux.sh
 npm start # To start Electron
 # Note: Uncomment out 'process.env.NODE_ENV = 'production';' in main.js to show devTool options
 
-```
-
-**Create Electron App (Windows, Linux, MacOS)**
-
-Run each command in their respectively OS to create an executable
-```
-# Build Windows Executable
-npm run package-win
-
-# Build Linux Executable
-npm run package-linux
-
-# Build MacOS Executable 
-npm run package-mac
 ```
 
 Note: using git lfs to upload release-builds (too large for github)
