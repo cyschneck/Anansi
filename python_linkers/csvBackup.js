@@ -1,3 +1,4 @@
+"use strict"
 let {PythonShell} = require('python-shell')
 var path = require("path")
 
