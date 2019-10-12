@@ -6,14 +6,14 @@ var path = require("path")
 // TODO: add --windowed to pyinstaller to run without popups
 // TODO: change to child_process to run executable of python script in final bundled executable
 
-function get_account_name(){
-	var accountName = document.getElementById("account_name").value
+function get_custom_folder_name(){
+	var accountName = document.getElementById("custom_folder_name").value
 	//document.getElementById("account_name").value = ""; // set back to NULL
 	
 	var options = {
 		scriptPath: path.join(__dirname, '/./'),
-		args: ["-A" + accountName],
-		// argsparse python -A 'account_name'
+		args: ["-F" + accountName],
+		// argsparse python -F 'custom_folder_name'
 	}
 	//console.log(options)
 	let handwriting = new PythonShell("csvBackup.py", options);

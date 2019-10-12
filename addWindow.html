@@ -2,19 +2,23 @@
 <html lang="en">
 	<head>
 		<title>Add List Item</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+		<link rel="stylesheet" href="styles.css">
+
+		<!--Pop up alert for python script-->
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<script src="python_linkers/csvBackup.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<form>
-				<h1>Add List Item</h1>
+				<h1>Add Custom Folder</h1>
 				<div>
-					<label>Enter Item</label>
-					<input id="account_name" type="text" placeholder="Account Name" autofocus />
+					<label>Enter Name</label>
+					<input id="custom_folder_name" type="text" placeholder="Custom Folder Name" autofocus />
 				</div>
-				<button class ="btn waves-effect waves-light" onclick="get_account_name()">Submit</button>
+				<!--<button class ="btn waves-effect waves-light" onclick="get_custom_folder_name()">Submit</button>-->
+				<button class ="submit" onclick="get_custom_folder_name()">Submit</button>
 			</form>
 		</div>
 		
@@ -27,9 +31,9 @@
 			
 			function submitForm(e){
 				e.preventDefault();
-				const account_name = document.querySelector('#account_name').value;
+				const custom_folder_name = document.querySelector('#custom_folder_name').value;
 				
-				ipcRenderer.send('account_name:add', account_name);
+				ipcRenderer.send('custom_folder_name:add', custom_folder_name);
 			}
 		</script>
 	</body>

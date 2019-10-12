@@ -68,14 +68,13 @@ function createAddWindow(){
 	});
 }
 
-// Catch account_name:add from Add Window
-ipcMain.on('account_name:add', function(e, account_name){
+// Catch custom_folder_name:add from Add Window
+ipcMain.on('custom_folder_name:add', function(e, custom_folder_name){
 	if (process.env.NODE_ENV != 'production') {
-		console.log(account_name, account_name);
+		console.log(`New Folder: '${custom_folder_name}'`);
 		// if not in production, print console commands
 	}
-	mainWindow.webContents.send('account_name:add', account_name); // send items to main window
-
+	mainWindow.webContents.send('custom_folder_name:add', custom_folder_name); // send items to main window
 	//addWindow.close(); // close add window after each entry
 });
 
@@ -94,9 +93,9 @@ const mainMenuTemplate = [
 			}
 		},
 		{
-			label: 'Clear Account Lists',
+			label: 'Clear Custom Folder List',
 			click(){
-				mainWindow.webContents.send('account_name:clear');
+				mainWindow.webContents.send('custom_folder_name:clear');
 			}
 		},
 		{type: 'separator'}, // add line between menu items and 'quit' option
@@ -139,7 +138,7 @@ if (process.env.NODE_ENV != 'production'){
 				label: 'Toggle DevTools',
 				// add hot key
 				accelerator: process.platform=='darwin' ? 'Command+I' : 'Ctrl+I', // close window with either command+i for mac or ctrl+i for other OS'
-				click(account_name, focusedWindow){
+				click(custom_folder_name, focusedWindow){
 					// Will make devTools to show up on whatever window is running
 					focusedWindow.toggleDevTools();
 				}
