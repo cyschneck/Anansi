@@ -9,6 +9,9 @@ Science and research collection tool made in Electron.js and Python
 ### Download
 *Coming soon...*
 
+### TODO
+Run python exe instead of python script in csvBackup.js (bundled/frozen via pyinstaller)
+
 ### Instructions for Development
 
 Dependencies installed via local_dev_installation_linux.sh
