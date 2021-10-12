@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/cyschneck/Anansi#readme",
   "dependencies": {
-    "electron": "^6.0.11",
+    "electron": "^11.5.0",
     "python-shell": "^1.0.8"
   },
   "devDependencies": {
